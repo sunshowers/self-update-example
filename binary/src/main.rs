@@ -173,7 +173,7 @@ fn get_project_root() -> Result<Utf8PathBuf> {
     .read()
     .with_context(|| format!("error executing '{} locate-project'", cargo))?;
 
-    let mut utf8_path = Utf8PathBuf::from(path.trim_end());
+    let mut utf8_path = Utf8PathBuf::from(path);
     // The last component is expected to be Cargo.toml.
     if !utf8_path.ends_with("Cargo.toml") {
         bail!(

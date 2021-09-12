@@ -175,7 +175,8 @@ fn get_project_root() -> Result<Utf8PathBuf> {
     // The last component is expected to be Cargo.toml.
     if !utf8_path.ends_with("Cargo.toml") {
         bail!(
-            "'cargo locate-project' output does not end with Cargo.toml: {}",
+            "'{} locate-project' output does not end with Cargo.toml: {}",
+            cargo,
             utf8_path
         )
     };

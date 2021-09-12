@@ -1,0 +1,21 @@
+# Configuration for self-update-release.
+#
+# This is expected to be read from the downstream repo that consumes the binary.
+# In practice, this should be named something like "Toolname.toml".
+
+# The GitHub repository to fetch releases from. Downstream consumers may wish to maintain their own fork.
+# In this example the binary does not have a hardcoded default, but in your binary you can have one.
+repo = { owner = "sunshowers", name = "self-update-example" }
+# repo = { owner = "my-org", name = "my-self-update-example" }
+
+# The prefix used for the version numbers. Can be something like "v", a prefix, or empty.
+# Again, in this example the binary does not have a hardcoded default, but in your binary you can have one.
+# Note that self_update 0.27 has a bug where it can erroneously parse tags that begin with "v" like "very-cool-package":
+# https://github.com/jaemk/self_update/issues/76.
+prefix = "example-"
+
+# The version to pin the binary to. "latest" by default, but can be a specific version or version requirement, similar
+# to the rust-toolchain file.
+version = "latest"
+# version = "0.1.0"
+# version = "0.1"

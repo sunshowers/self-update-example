@@ -157,8 +157,6 @@ impl FromStr for DownloadVersion {
 }
 
 fn get_project_root() -> Result<Utf8PathBuf> {
-    color_eyre::install()?;
-
     // Use duct to run cargo -- it handles a lot of nasty error cases, saving 20-30 lines of
     // complicated boilerplate.
     let cargo = env::var("CARGO").unwrap_or_else(|_| "cargo".to_owned());
@@ -188,6 +186,8 @@ fn get_project_root() -> Result<Utf8PathBuf> {
 }
 
 fn main() -> Result<()> {
+    color_eyre::install()?;
+
     let args = Args::from_args();
     args.exec()
 }
